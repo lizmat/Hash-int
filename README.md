@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/Hash-int/workflows/test/badge.svg)](https://github.com/lizmat/Hash-int/actions)
+
 NAME
 ====
 
