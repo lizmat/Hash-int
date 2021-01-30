@@ -2,14 +2,14 @@
 # hopefully this will be integrated into Rakudo before soon.
 use nqp;
 
-class Hash::int:ver<0.0.1>:auth<cpan:ELIZABETH> {
+class Hash::int:ver<0.0.2>:auth<cpan:ELIZABETH> {
     has $!hash handles <gist raku Str values pairs iterator>;
 
     method new() {
         nqp::p6bindattrinvres(nqp::create(self),self,'$!hash',nqp::hash)
     }
 
-    method STORE(\to-store, :$INITIALIZE) {
+    method STORE(::?CLASS:D: \to-store, :$INITIALIZE) {
         my $iterator := to-store.iterator;
         my $hash     := $INITIALIZE ?? $!hash !! ($!hash := nqp::hash);
         my Mu $x;
@@ -45,27 +45,27 @@ class Hash::int:ver<0.0.1>:auth<cpan:ELIZABETH> {
         self
     }
 
-    method AT-KEY(int $key) is raw {
+    method AT-KEY(::?CLASS:D: int $key) is raw {
         nqp::atkey($!hash,$key)
     }
-    method ASSIGN-KEY(int $key, \value) is raw {
+    method ASSIGN-KEY(::?CLASS:D: int $key, \value) is raw {
         nqp::bindkey($!hash,$key,value)
     }
-    method BIND-KEY(int $key, \value) is raw {
+    method BIND-KEY(::?CLASS:D: int $key, \value) is raw {
         nqp::bindkey($!hash,$key,value)
     }
-    method DELETE-KEY(int $key) is raw {
+    method DELETE-KEY(::?CLASS:D: int $key) is raw {
         my $value := nqp::atkey($!hash,$key);
         nqp::deletekey($!hash,$key);
         $value
     }
-    method EXISTS-KEY(int $key) is raw {
+    method EXISTS-KEY(::?CLASS:D: int $key) is raw {
         nqp::hllbool(nqp::existskey($!hash,$key))
     }
-    method keys() {
+    method keys(::?CLASS:D:) {
         nqp::hllize($!hash).keys.map: *.Int
     }
-    method kv() {
+    method kv(::?CLASS:D:) {
         nqp::hllize($!hash).map: { (.key.Int, .value).Slip }
     }
 }
