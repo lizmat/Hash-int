@@ -2,7 +2,7 @@
 # hopefully this will be integrated into Rakudo before soon.
 use nqp;
 
-class Hash::int:ver<0.0.2>:auth<cpan:ELIZABETH> {
+class Hash::int:ver<0.0.3>:auth<zef:lizmat> {
     has $!hash handles <gist raku Str values pairs iterator>;
 
     method new() {
@@ -95,7 +95,7 @@ take some shortcuts, making it up to 7x as fast as a normal hash.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Hash-int . Comments and
 Pull Requests are welcome.

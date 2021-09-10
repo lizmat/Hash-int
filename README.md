@@ -22,7 +22,7 @@ Hash::int is module that provides the `Hash::int` class to be applied to the ini
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>
+Elizabeth Mattijsen <liz@raku.rocks>
 
 Source can be located at: https://github.com/lizmat/Hash-int . Comments and Pull Requests are welcome.
 
