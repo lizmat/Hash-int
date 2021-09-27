@@ -2,7 +2,7 @@
 # hopefully this will be integrated into Rakudo before soon.
 use nqp;
 
-class Hash::int:ver<0.0.3>:auth<zef:lizmat> {
+class Hash::int:ver<0.0.4>:auth<zef:lizmat> {
     has $!hash handles <gist raku Str values pairs iterator>;
 
     method new() {
