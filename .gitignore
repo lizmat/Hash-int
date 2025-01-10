@@ -1,3 +1,4 @@
 .precomp/
 /Hash-int-*
 /releases/
+*.rakucov
